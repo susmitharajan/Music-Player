@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Equalizer"
-        android:id="@+id/nav_item_inbox"
+    <item android:title="Home"
+        android:id="@+id/nav_item_home"
         android:icon="@drawable/ic_assignment_black_24dp"/>
 
     <item android:title="Ringtone Cutter"
-        android:id="@+id/nav_item_sent"
+        android:id="@+id/nav_item_ringtone"
         android:icon="@drawable/ic_assignment_black_24dp"/>
 
-    <item android:title="Drafts"
-        android:id="@+id/nav_item_draft"
+    <item android:title="Equalizer"
+        android:id="@+id/nav_item_equalizer"
         android:icon="@drawable/ic_assignment_black_24dp"/>
 
 

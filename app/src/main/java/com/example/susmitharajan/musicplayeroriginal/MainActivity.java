@@ -34,27 +34,32 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
 
-                if (item.getItemId()== R.id.nav_item_inbox) {
+                if (item.getItemId()== R.id.nav_item_home) {
                     FragmentTransaction fragmentTransaction= FM.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new EqualizerFragment()).commit();
+                    fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
                 }
 
-                if (item.getItemId()==R.id.nav_item_sent)
+                if (item.getItemId()==R.id.nav_item_ringtone)
                 {
                     FragmentTransaction fragmentTransaction1=FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView,new TabFragment()).commit();
+                    fragmentTransaction1.replace(R.id.containerView,new RingtoneFragment()).commit();
 
                 }
+
+                if (item.getItemId()==R.id.nav_item_equalizer)
+                {
+                    FragmentTransaction fragmentTransaction1=FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView,new EqualizerFragment()).commit();
+
+                }
+
                 return false;
             }
         });
-
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.app_name,R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-
     }
 }
