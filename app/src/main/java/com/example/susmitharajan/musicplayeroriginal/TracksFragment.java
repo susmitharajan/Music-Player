@@ -25,7 +25,7 @@ public class TracksFragment extends Fragment {
 
     ArrayList<String> tracks = new ArrayList<>();
 
-    List<Tracks_DataModel> heroList;
+    List<Tracks_DataModel> heroList = new ArrayList<>();
 
     //the listview
     ListView listView;
@@ -49,17 +49,20 @@ public class TracksFragment extends Fragment {
         displayMusicAlbums(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
         tracks.size();
 
-        heroList = new ArrayList<>();
+
 
         listView = (ListView) getView().findViewById(R.id.listView);
 
+
+
+
         //adding some values to our list
-        heroList.add(new Tracks_DataModel(R.drawable.nature, "Spiderman", "Avengers"));
-        heroList.add(new Tracks_DataModel(R.drawable.nature, "Joker", "Injustice Gang"));
-        heroList.add(new Tracks_DataModel(R.drawable.nature, "Iron Man", "Avengers"));
-        heroList.add(new Tracks_DataModel(R.drawable.nature, "Doctor Strange", "Avengers"));
-        heroList.add(new Tracks_DataModel(R.drawable.nature, "Captain America", "Avengers"));
-        heroList.add(new Tracks_DataModel(R.drawable.nature, "Batman", "Justice League"));
+        /*heroList.add(new Tracks_DataModel( "Spiderman", "Avengers"));
+        heroList.add(new Tracks_DataModel( "Joker", "Injustice Gang"));
+        heroList.add(new Tracks_DataModel( "Iron Man", "Avengers"));
+        heroList.add(new Tracks_DataModel("Doctor Strange", "Avengers"));
+        heroList.add(new Tracks_DataModel("Captain America", "Avengers"));
+        heroList.add(new Tracks_DataModel( "Batman", "Justice League"));*/
 
         //creating the adapter
         Tracks_Adapter adapter = new Tracks_Adapter(getContext(), R.layout.track_custom_list, heroList);
@@ -69,18 +72,22 @@ public class TracksFragment extends Fragment {
     }
 
     void displayMusicAlbums(Uri externalContentUri){
-        String cval;
+        String title,artist;
         ArrayList<String> albumlist = new ArrayList<>();
         String selection = MediaStore.Audio.Media.IS_MUSIC + "!= 0";
-        String sortOrder = MediaStore.Audio.Media.TITLE;
-        String[] albums = {sortOrder};
-        Cursor cursor=getActivity().getContentResolver().query(externalContentUri,  albums, selection, null, sortOrder);
+
+       // String sortOrder = MediaStore.Audio.Media.TITLE;
+       // String[] albums = {sortOrder};
+      //  Cursor cursor=getActivity().getContentResolver().query(externalContentUri,  albums, selection, null, sortOrder);
+        Cursor cursor=getActivity().getContentResolver().query(externalContentUri,  null, null, null, null);
         if(cursor!=null && cursor.getCount() > 0){
             cursor.moveToFirst();
             do
             {
-                cval = cursor.getString(cursor.getColumnIndexOrThrow(sortOrder));
-                tracks.add(cval);
+                title = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE));
+                artist = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST));
+                heroList.add(new Tracks_DataModel(title,artist));
+                tracks.add(title);
             } while(cursor.moveToNext());
         }
     }

@@ -5,17 +5,12 @@ package com.example.susmitharajan.musicplayeroriginal;
  */
 
 public class Tracks_DataModel {
-    int image;
+
     String name, team;
 
-    public Tracks_DataModel(int image, String name, String team) {
-        this.image = image;
+    public Tracks_DataModel(String name, String team) {
         this.name = name;
         this.team = team;
-    }
-
-    public int getImage() {
-        return image;
     }
 
     public String getName() {

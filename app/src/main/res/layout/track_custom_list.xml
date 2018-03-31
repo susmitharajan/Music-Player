@@ -3,48 +3,30 @@
     android:padding="15dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    >
 
     <TextView
         android:id="@+id/textViewName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:paddingBottom="10dp"
-        android:text="Spiderman"
-        android:textAlignment="center"
-        android:textSize="35dp"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
+        android:src="@drawable/ic_more_vert_black_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
 
     <TextView
         android:id="@+id/textViewTeam"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewName"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
         android:paddingTop="10dp"
-        android:text="Spiderman"
-        android:textAlignment="center"
-        android:textSize="25dp"
+        style="@style/Base.TextAppearance.AppCompat.Small"
         android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/buttonDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:background="#FF0000"
-        android:text="Delete" />
-
 
 </RelativeLayout>
