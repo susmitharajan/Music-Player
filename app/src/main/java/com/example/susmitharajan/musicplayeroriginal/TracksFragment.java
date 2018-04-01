@@ -49,22 +49,7 @@ public class TracksFragment extends Fragment {
         displayMusicAlbums(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
         tracks.size();
 
-
-
         listView = (ListView) getView().findViewById(R.id.listView);
-
-
-
-
-        //adding some values to our list
-        /*heroList.add(new Tracks_DataModel( "Spiderman", "Avengers"));
-        heroList.add(new Tracks_DataModel( "Joker", "Injustice Gang"));
-        heroList.add(new Tracks_DataModel( "Iron Man", "Avengers"));
-        heroList.add(new Tracks_DataModel("Doctor Strange", "Avengers"));
-        heroList.add(new Tracks_DataModel("Captain America", "Avengers"));
-        heroList.add(new Tracks_DataModel( "Batman", "Justice League"));*/
-
-        //creating the adapter
         Tracks_Adapter adapter = new Tracks_Adapter(getContext(), R.layout.track_custom_list, heroList);
 
         //attaching adapter to the listview
